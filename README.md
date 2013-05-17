@@ -12,7 +12,7 @@ Currently, there is no official release, but you can download the source and put
 
 
 ```shell
-wget https://github.com/ymartel06/GnGeo-Pi/blob/master/releases/sources/gngeo-pi-0.85.tar.gz?raw=true
+wget -O gngeo-pi-0.85.tar.gz https://github.com/ymartel06/GnGeo-Pi/blob/master/releases/sources/gngeo-pi-0.85.tar.gz?raw=true
 rm -rf /home/pi/RetroPie/emulators/gngeo-pi-0.85
 tar xvfz gngeo-pi-0.85.tar.gz -C /home/pi/RetroPie/emulators/
 pushd "/home/pi/RetroPie/emulators/gngeo-pi-0.85"
