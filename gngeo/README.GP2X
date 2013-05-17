@@ -1,0 +1,77 @@
+
+Here is the port of gngeo to the GP2X.
+
+Compilation from source:
+# ./configure --host=arm-open2x-linux --enable-gp2x=yes --with-sdl-prefix=[Path to your gp2x SDL] --disable-sdltest
+# make
+
+With open2x, I build gngeo with the folowing commande line
+# ./configure --build=i686-pc-linux-gnu --host=arm-open2x-linux --enable-gp2x=yes --with-sdl-prefix=/opt/open2x/gcc-4.1.1-glibc-2.3.6 CFLAGS=-I/opt/open2x/gcc-4.1.1-glibc-2.3.6/include
+
+TODO: Almost everything bellow this line is outdated.
+
+Instalation:
+- Just unzip the dist in a dir call gngeo or whatever
+- Put a neogeo bios unjzipped in the roms dir. You should have the folowing files:
+  vs-bios.rom, usa_2slt.bin, asia-s3.rom, sp-s2.sp1, sfix.sfx and 000-lo.lo
+  If you want to play in AES mode, you will need also aes-bios.bin
+  If you want to use the universal bios, you will need uni-bios.rom
+
+- Put your favorites roms in the roms folder
+- Edit the conf/gngeorc if you want.
+- Optional: Install Rage2x, a nice frontend dedicated to gngeo http://archive.gp2x.de/cgi-bin/cfiles.cgi?0,0,0,0,5,1294
+
+- If you don't use Rage2x, launch gngeo by chossing gngeo2x from the games menu.
+While in the game select screen, push Y to enable sound (see the bottom of the screen)
+
+- If you have Rage2x, just launch it ;) You can configure almost everything by pressing Select
+
+Jostick configuration:
+
+Quit: R and StickPush
+BIOS: L and StickPush (do not work with the universal bios)
+
+Neogeo             | GP2X
+__________________________
+Start              : Start
+Insert Coin/select : Select
+A                  : X
+B                  : B
+C                  : A
+D                  : Y
+Macro 1            : L
+Macro 2            : R
+Stick              : Stick :)
+
+BIG ROM Support:
+**** NEW ****
+Gngeo 0.6.10 can now automaticaly dump the gfx file if the selected roms is to large to fit in memory.
+You just have to select a game in Selector, then gngeo will create the needed gfx file and exit. Just re-launch 
+the game to enjoy it.
+Dumping gfx is a very slooowww process, so be patient :)
+
+Old method (still valid):
+Gngeo 0.6.7 add Big roms support on the gp2x. The principe is simply to mmap a special dump file and use
+it as gfx memory. This file have to be created on your box before.
+I'm pleasently surprised by the result. On my modest SD, games like rbff1 are playable. A fast SD is still
+recomended
+Please note that newer (encrypted) roms support is very limited in gngeo. But some hacked one made for
+NeoRageX work.
+
+Here is a little tutorial to enable big rom support.
+- The first things to do is to compile the dumpgfx utilitie for your platform. A version is available for linux. Help is wanted to port it on other platform (especialy MacOS & Windows)
+ .  Untar the dumpgfx.tgz available in the source package of gngeo,
+    or here http://m.peponas.free.fr/gngeo/download/dumpgfx.tgz
+ .  go to the dumpgfx dir
+ .  Compilation is a simple "gcc *.c -o dumpgfx -lz"
+- Now, Create a dump with "./dumpgfx games.zip" where games.zip is the game you want to dump.
+- A .gfx should have been created
+- Copy this gfx file in the gngeo's roms dir on your sdcard
+- Don't forget to copy the rom too ;)
+- Now you can launch the rom as usually, and enjoy.
+
+
+Compatibility/issue :
+- Check the wiki for a good compatibility list: http://wiki.gp2x.org/wiki/GnGeo2x
+
+That's all folk
