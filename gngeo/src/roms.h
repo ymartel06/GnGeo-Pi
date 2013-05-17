@@ -81,5 +81,6 @@ char *dr_gno_romname(char *filename);
 int dr_open_gno(char *filename);
 int init_game(char *rom_name);
 int close_game(void);
+char *remove_path_and_extension(char* mystr, char dot, char sep);
 
 #endif
