@@ -43,16 +43,16 @@ struct DrZ80 mydrz80;
 unsigned int drz80_rebasePC(unsigned short address)
 {
 	//if (address==0x66) 
-	printf("Rebase PC %x\n",address);
-        mydrz80.Z80PC_BASE = (unsigned int)drz80mem;
+	//printf("Rebase PC %x\n",address);
+    mydrz80.Z80PC_BASE = (unsigned int)drz80mem;
 	mydrz80.Z80PC = mydrz80.Z80PC_BASE + address;
         return mydrz80.Z80PC_BASE + address;
 }
 
 unsigned int drz80_rebaseSP(unsigned short address)
 {
-	printf("Rebase SP %x\n",address);
-        mydrz80.Z80SP_BASE = (unsigned int)drz80mem;
+	//printf("Rebase SP %x\n",address);
+    mydrz80.Z80SP_BASE = (unsigned int)drz80mem;
 	mydrz80.Z80SP = mydrz80.Z80SP_BASE + address;
 	return mydrz80.Z80SP_BASE + address;
 }
@@ -76,20 +76,20 @@ void drz80_write16(unsigned short data,unsigned short address) {
 
 void drz80_writeport16(Uint16 port, Uint8 value)
 {
-	printf("Write port %d=%d\n",port,value);
+	//printf("Write port %d=%d\n",port,value);
     z80_port_write(port, value);
 }
 
 Uint8 drz80_readport16(Uint16 port)
 {
-	printf("Read port %d\n",port);
+	//printf("Read port %d\n",port);
     return z80_port_read(port);
 }
 
 /* cpu interface implementation */
 void cpu_z80_switchbank(Uint8 bank, Uint16 PortNo)
 {
-	printf("Switch bank %x %x\n",bank,PortNo);
+	//printf("Switch bank %x %x\n",bank,PortNo);
     if (bank<=3)
 	z80_bank[bank]=PortNo;
 
