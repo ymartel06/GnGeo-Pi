@@ -27,7 +27,7 @@ mv /home/pi/RetroPie/emulators/gngeo-pi-0.85/installdir/share/man/man1/arm-linux
 Wiki
 ----
 
-The wiki will open soon. Stay tuned.
+The wiki is open at this url: https://github.com/ymartel06/GnGeo-Pi/wiki
 
 Thanks
 ------
