@@ -287,9 +287,8 @@ int handle_event(void) {
 		case SDL_JOYHATMOTION: /* Hat only support Joystick map */
 		{
 			int player=jmap->jhat[event.jhat.which][event.jhat.hat].player;
-			int map=jmap->jhat[event.jhat.which][event.jhat.hat].map;
 			int i;
-			if (player && map==GN_UP) {
+			if (player) {
 				player-=1;
 				for(i=GN_UP;i<=GN_RIGHT;i++)
 					joy_state[player][i]=0;
